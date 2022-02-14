@@ -13,6 +13,7 @@ ARCHIVE=`basename $LINK`
 unzip $ARCHIVE
 export FASTQC_PATH=$INSTALL_PATH/FastQC
 rm $ARCHIVE
+chmod +x $FASTQC_PATH/fastqc
 cd $CWD
 
 # Install MultiQC
@@ -20,13 +21,13 @@ pip install multiqc
 export MULTIQC_PATH=/home/user/.local/bin
 
 # Install cutadapt
-pip install –upgrade cutadapt
+pip install --upgrade cutadapt
 export CUTADAPT_PATH=/home/user/.local/bin
 
 # Download and configure TrimGalore
-LINK=https://github.com/FelixKrueger/TrimGalore/archive/refs/tags/0.6.7.tar.gz -O TrimGalore_v0.6.7.tar.gz
+LINK=https://github.com/FelixKrueger/TrimGalore/archive/refs/tags/0.6.7.tar.gz 
 cd $INSTALL_PATH
-wget $LINK
+wget $LINK -O TrimGalore_v0.6.7.tar.gz
 ARCHIVE=TrimGalore_v0.6.7.tar.gz
 tar -xvf $ARCHIVE
 export TRIMGALORE_PATH=$INSTALL_PATH/ TrimGalore-0.6.7
@@ -74,7 +75,7 @@ sudo apt remove docker docker-engine docker.io containerd runc
 
 sudo apt update
 
-sudo apt install ca-certificates curl gnupg lsb-release
+sudo apt install -y ca-certificates curl gnupg lsb-release
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
@@ -165,9 +166,9 @@ ARCHIVE=`basename $LINK`
 tar -xvf $ARCHIVE
 rm $ARCHIVE
 mv vcflib-1.0.1-src vcflib-1.0.1
-export VCFLIB_PATH=$INSTALL_PATH/vcflib-1.0.1/bin
-cd VCFLIB_PATH/..
+cd vcflib-1.0.1
 make
+export VCFLIB_PATH=$INSTALL_PATH/vcflib-1.0.1/bin
 cd $CWD
 
 # Download and configure GLnexus

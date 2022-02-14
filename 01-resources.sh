@@ -29,17 +29,21 @@ mkdir dbSNP
 cd dbSNP
 wget ftp://ftp.ncbi.nih.gov/snp/organisms/human_9606_b151_GRCh37p13/VCF/00-All.vcf.gz
 gunzip 00-All.vcf.gz
+mv 00-All.vcf dbSNP151.vcf
 cd ..
 
 mkdir dbNSFP
 cd dbNSFP
 wget ftp://dbnsfp:dbnsfp@dbnsfp.softgenetics.com/dbNSFPv2.9.3.zip
 unzip dbNSFPv2.9.3.zip
+(head -n 1 dbNSFP2.9.3_variant.chr1 ; cat dbNSFP2.9.3_variant.chr* | grep -v "^#") > dbNSFP2.9.3.txt
+bgzip dbNSFP2.9.txt # 17’
+tabix -s 1 -b 2 -e 2 dbNSFP2.9.txt.gz
 cd ..
 
 mkdir gnomAD
 cd gnomAD
-wget https://storage.googleapis.com/gnomad-public/release/2.1.1/vcf/exomes/gnomad.exomes.r2.1.1.sites.vcf.bgz
-wget https://storage.googleapis.com/gnomad-public/release/2.1.1/vcf/exomes/gnomad.exomes.r2.1.1.sites.vcf.bgz.tbi
+wget https://storage.googleapis.com/gcp-public-data--gnomad/release/2.1.1/vcf/exomes/gnomad.exomes.r2.1.1.sites.vcf.bgz.tbi
+wget https://storage.googleapis.com/gcp-public-data--gnomad/release/2.1.1/vcf/exomes/gnomad.exomes.r2.1.1.sites.vcf.bgz
 
-CWD=`pwd`
+cd $CWD
