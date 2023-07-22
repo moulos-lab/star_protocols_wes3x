@@ -11,7 +11,7 @@ do
     echo "Processing $SAMPLE"
     $SAMTOOLS_PATH/samtools sort -n -@ $CORES -m 4G \
         $BAM_PATH/$SAMPLE".uns" | \
-    $SAMTOOLS_PATH/samtools fixmate -m - 
+    $SAMTOOLS_PATH/samtools fixmate -m - \
     $BAM_PATH/$SAMPLE"_fixmate.bam"
 done
 rm $BAM_PATH/*.uns
