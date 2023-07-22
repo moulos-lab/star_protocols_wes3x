@@ -3,7 +3,7 @@
 # Setup paths
 HOME_PATH=/home/user/analysis
 FASTQ_PATH=$HOME_PATH/fastq
-mkdir -p $ FASTQ_PATH
+mkdir -p $FASTQ_PATH
 cd $CWD
 
 # Download raw data from 1000 genomes project
