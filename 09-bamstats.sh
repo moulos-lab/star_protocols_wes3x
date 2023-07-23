@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CAPTURE_KIT=$HOME_PATH/resources/panel/Agilent_SureSelect_All_Exon_V2.bed
+CAPTURE_KIT=$RESOURCES_PATH/panel/Agilent_SureSelect_All_Exon_V2.bed
 BAM_PATH=$HOME_PATH/bam
 REPORT=$HOME_PATH/reports/finalbamstats.txt
 mkdir $HOME_PATH/reports
