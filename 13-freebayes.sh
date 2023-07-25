@@ -82,7 +82,7 @@ cat $VCF_PATH/*.vcf | \
     $VCFLIB_PATH/scripts/vcffirstheader | \
     $VCFLIB_PATH/bin/vcfstreamsort -w 1000 | \
     $VCFLIB_PATH/bin/vcfuniq > \
-    $VCF_PATH/all_samples_freebayes.vcf
+    $VCF_PATH/freebayes_full.vcf
 
 echo "=== Compressing and indexing final VCF" >> $META_REPORT
 $HTSLIB_PATH/bgzip $VCF_PATH/freebayes_full.vcf
