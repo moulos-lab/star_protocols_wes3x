@@ -22,7 +22,7 @@ do
     $TRIMGALORE_COMMAND \
         --quality 30 \
         --length 50 \
-        --output_dir $TRIMGALORE_OUTPUT/$BASE \
+        --output_dir $TRIMGALORE_OUTPUT/ \
         --path_to_cutadapt $CUTADAPT_COMMAND \
         --cores 4 \
         --paired \

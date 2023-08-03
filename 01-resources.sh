@@ -2,7 +2,7 @@
 
 # Set resources path
 RESOURCES_PATH=/home/user/resources
-mkdir -p $ RESOURCES_PATH
+mkdir -p $RESOURCES_PATH
 CWD=`pwd`
 
 # Download reference genome
