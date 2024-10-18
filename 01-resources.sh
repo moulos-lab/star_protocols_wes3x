@@ -34,7 +34,7 @@ cd ..
 
 mkdir dbNSFP
 cd dbNSFP
-wget ftp://dbnsfp:dbnsfp@dbnsfp.softgenetics.com/dbNSFPv2.9.3.zip
+wget https://dbnsfp.s3.amazonaws.com/dbNSFPv2.9.3.zip
 unzip dbNSFPv2.9.3.zip
 (head -n 1 dbNSFP2.9.3_variant.chr1 ; cat dbNSFP2.9.3_variant.chr* | grep -v "^#") > dbNSFP2.9.3.txt
 bgzip dbNSFP2.9.txt # 17’
