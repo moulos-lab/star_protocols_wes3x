@@ -44,7 +44,7 @@ rm $INTERVAL_LIST_PATH/*.pre
 
 # Prepare BAM file list for freebayes
 echo "=== Preparing BAM file list" >> $META_REPORT
-BAMLIST=/media/raid/tmp/tmp/medex/scripts/bamlist.txt
+BAMLIST=$HOME_PATH/bam/bamlist.txt
 if [ -f $BAMLIST ]
 then
     rm $BAMLIST
@@ -78,11 +78,11 @@ done
 # Wait before gathering the results
 wait
 echo "=== Merging VCFs" >> $META_REPORT
-cat $VCF_PATH/*.vcf | \
+cat $VCF_PATH/fb_parts/*.vcf | \
     $VCFLIB_PATH/scripts/vcffirstheader | \
     $VCFLIB_PATH/bin/vcfstreamsort -w 1000 | \
     $VCFLIB_PATH/bin/vcfuniq > \
-    $VCF_PATH/all_samples_freebayes.vcf
+    $VCF_PATH/freebayes_full.vcf
 
 echo "=== Compressing and indexing final VCF" >> $META_REPORT
 $HTSLIB_PATH/bgzip $VCF_PATH/freebayes_full.vcf
@@ -95,7 +95,7 @@ $HTSLIB_PATH/tabix $VCF_PATH/freebayes_full.vcf.gz
 echo "=== Determining QUAL and DP hard pre-filters" >> $META_REPORT
 $BCFTOOLS_PATH/bcftools query \
     --include 'QUAL>20' \
-    --format '%QUAL\n' $VCF_PATH/freebayes_full.vcf.gz > quals.tmp &
+    --format '%QUAL\n' $VCF_PATH/freebayes_full.vcf.gz > $VCF_PATH/quals.tmp &
 $BCFTOOLS_PATH/bcftools query \
     --include 'QUAL>20' \
     --format '%INFO/DP\n' $VCF_PATH/freebayes_full.vcf.gz | \
