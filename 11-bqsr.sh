@@ -4,8 +4,8 @@ BAM_PATH=$HOME_PATH/bam
 CAPTURE_KIT=$RESOURCES_PATH/panel/Agilent_SureSelect_All_Exon_V2.bed
 INTERVAL_LIST_PATH=$HOME_PATH/resources/interval_scatter
 BWA_INDEX=$RESOURCES_PATH/hs37d5/hs37d5.fa
-DBSNP=$RESOURCES_PATH/dbSNP151.vcf
-GNOMAD=$RESOURCES_PATH/gnomad.exomes.r2.1.1.sites.vcf.bgz
+DBSNP=$RESOURCES_PATH/dbSNP/dbSNP151.vcf
+GNOMAD=$RESOURCES_PATH/gnomAD/gnomad.exomes.r2.1.1.sites.vcf.bgz
 CORES=16
 PADDING=50
 

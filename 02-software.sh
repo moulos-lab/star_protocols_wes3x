@@ -146,7 +146,7 @@ ARCHIVE=`basename $LINK`
 tar -xvf $ARCHIVE
 rm $ARCHIVE
 export BEDTOOLS_PATH=$INSTALL_PATH/bedtools2/bin
-cd BEDTOOLS_PATH/..
+cd $BEDTOOLS_PATH/..
 make
 cd $CWD
 
